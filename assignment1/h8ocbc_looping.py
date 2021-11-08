@@ -5,16 +5,13 @@ numbers = [
     399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949
 ]
 
-numbers.sort()
-
 i = 0
 
-print('press "loop" to show numbers less than 918 sorted')
-x = input()
-if(x == 'loop'):
-    for x in numbers:
-        if(x < 918):
-            if (x % 2) == 0:
-                print(numbers[i], end=' ')
-            i = i + 1
-    print('done')
+print('hanya genap')
+
+for x in numbers:
+    if(x < 918):
+        if (x % 2) == 0:
+            print(x, end=' ')
+        i = i + 1
+print('done')
