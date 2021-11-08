@@ -68,11 +68,21 @@
 #         j += 1
 #     i += 1
 
-print('#23')
-a = ['foo', 'bar']
-while len(a):
-    print(a.pop(0))
-    b = ['baz', 'qux']
+# print('#23')
+# a = ['foo', 'bar']
+# while len(a):
+#     print(a.pop(0))
+#     b = ['baz', 'qux']
 
-    while len(b):
-        print('>', b.pop(0))
+#     while len(b):
+#         print('>', b.pop(0))
+
+# x = range(0, 100, 20)  # 0-99, interval 20
+
+# for x in x:
+#     print(x)
+
+d = {'foo': 1, 'bar': 2, 'bax': 3}
+for k in d:  # k itu keynya
+    print(k)
+    print(d[k])
