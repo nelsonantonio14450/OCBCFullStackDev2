@@ -1,12 +1,11 @@
 import math  # buat pembulatan keatas
 
 
-def CtoK(val):  # celcius to kelvin
-    return math.ceil(val + 273.15)
-
-
-def KtoC(val):  # kelvin to celcius
-    return math.ceil(val - 273.15)
+def Kelvin(val, input):
+    if(input == "K"):
+        return math.ceil(val + 273.15)  # celcius to kelvin
+    elif(input == "C"):
+        return math.ceil(val - 273.15)  # kelvin to celcius
 
 
 def inputToFarenheit(val, input):  # fungsi input ke faren
@@ -28,13 +27,14 @@ c = "C"
 k = "K"
 
 print("input angka yang mau dikonversi")
-x = int(input())  # input user
+x = int(input())  # input user dikonversi ke int
 # output dari masing-masing function
 print("hasil konversi")
 print("celcius to kelvin")
-print(CtoK(x))
+print(Kelvin(x, k))
 print("kelvin to celcius")
-print(KtoC(x))
+print(Kelvin(x, c))
+# parameter ke 2 ini buat nentuin dikonversi kemana
 print("farenheit to celcius")
 print(farenheitToInput(x, c))
 print("farenheit to kelvin")
