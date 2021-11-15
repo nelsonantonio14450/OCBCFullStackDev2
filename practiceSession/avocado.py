@@ -1,13 +1,24 @@
 
 from flask import make_response, abort
+from sqlalchemy.orm import session
 from config import db
 from models import Avocado, AvocadoSchema, Avoregion, AvoType
 
 
 def read_all():
 
-    avocado = Avocado.query.join(Avoregion).join(
-        AvoType).order_by(Avocado.id).all()
+    avocado = Avocado.query.order_by(Avocado.id).all()
+    # avocado = (
+    #     Avocado.query
+    #     .join(AvoType)
+    #     .all()
+    # )
+    # avocado = (
+    #     session.query(Avocado, Avoregion, AvoType).
+    #     filter(
+    #         Avocado.regionid == Avoregion.regionid).
+    #     filter(Avocado.type == AvoType.typeid).all()
+    # )
     avocado_schema = AvocadoSchema(many=True)
     data = avocado_schema.dump(avocado)
     return data
