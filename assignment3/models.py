@@ -1,6 +1,4 @@
 from datetime import datetime
-
-from sqlalchemy.orm import backref
 from config import db, ma
 from sqlalchemy import ForeignKey
 from marshmallow import INCLUDE, EXCLUDE
@@ -23,14 +21,12 @@ class AvoType(db.Model):
     __tablename__ = 'avotype'
     typeid = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(32))
-    types = db.relationship('Avocado', backref="types")
 
 
 class Avoregion(db.Model):
     __tablename__ = 'avoregion'
     regionid = db.Column(db.Integer, primary_key=True)
     region = db.Column(db.String(32))
-    regions = db.relationship('Avocado', backref="regions")
 
 
 class AvocadoSchema(ma.SQLAlchemyAutoSchema):

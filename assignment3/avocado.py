@@ -6,8 +6,8 @@ from models import Avocado, AvocadoSchema, Avoregion, AvoType
 
 def read_all():
 
-    avocado = Avocado.query.join(Avoregion).join(
-        AvoType).order_by(Avocado.id).all()
+    avocado = Avocado.query.order_by(Avocado.id).all()
+
     avocado_schema = AvocadoSchema(many=True)
     data = avocado_schema.dump(avocado)
     return data

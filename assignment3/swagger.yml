@@ -22,7 +22,35 @@ paths:
       responses:
         200:
           description: Successfully read avocado set operation
-          
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                  description: Id of the avocado
+                date:
+                  type: string
+                avgprice:
+                  type: number
+                  
+                totalvol:
+                  type: number
+                  
+                avo_a:
+                  type: number
+                 
+                avo_b:
+                  type: number
+                  
+                avo_c:
+                  type: number
+                  
+                type:
+                  type: number
+                  
+                regionid:
+                  type: number
     post:
       operationId: avocado.create
       tags:
@@ -62,6 +90,33 @@ paths:
       responses:
         201:
           description: Successfully created avocado
+          schema:
+            properties:
+              id:
+                  type: string
+                  description: Id of the avocado
+              date:
+                type: string
+              avgprice:
+                type: number
+                
+              totalvol:
+                type: number
+                
+              avo_a:
+                type: number
+                
+              avo_b:
+                type: number
+                
+              avo_c:
+                type: number
+                
+              type:
+                type: number
+                
+              regionid:
+                type: number
 
 
   /avocado/{id}:
@@ -195,3 +250,4 @@ paths:
       responses:
         200:
           description: Successfully deleted a avocado
+
