@@ -2,6 +2,7 @@
 from flask import make_response, abort
 from config import db
 from models import Directors, Movies, MovieSchema
+import datetime
 
 
 def read_all():
@@ -301,6 +302,13 @@ def create(director_id, movies):
     if directors is None:
         abort(404, f"director not found for Id: {director_id}")
 
+    try:  # validate input date
+        inputDate = movies['release_date']
+        year, month, day = inputDate.split('-')
+        datetime.datetime(int(year), int(month), int(day))
+    except ValueError:
+        abort(400, f"not valid date: {inputDate}")
+
     schema = MovieSchema()
     new_movie = schema.load(movies, session=db.session)
 
@@ -318,6 +326,13 @@ def update(director_id, movie_id, movies):
         .filter(Movies.id == movie_id)
         .one_or_none()
     )
+
+    try:  # validate input date
+        inputDate = movies['release_date']
+        year, month, day = inputDate.split('-')
+        datetime.datetime(int(year), int(month), int(day))
+    except ValueError:
+        abort(400, f"not valid date: {inputDate}")
 
     if update_movies is not None:
 
