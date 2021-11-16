@@ -222,7 +222,60 @@ paths:
           required: true
       responses:
         200:
-          description: Successfully deleted a director             
+          description: Successfully deleted a director     
+
+  /director/department/{department}:
+    get:
+      operationId: directors.get_by_department
+      tags:
+        - director
+      summary: Get by department
+      description: Get by department
+      parameters:
+        - name: department
+          in: path
+          type: string
+          description: search by department
+          required: true
+      responses:
+        200:
+          description: search by department
+
+
+  /director/gender/{gender}:
+    get:
+      operationId: directors.get_by_gender
+      tags:
+        - director
+      summary: Get by gender
+      description: Get by gender
+      parameters:
+        - name: gender
+          in: path
+          type: string
+          description: search by gender
+          required: true
+      responses:
+        200:
+          description: search by gender
+
+
+  /director/name/{name}:
+    get:
+      operationId: directors.get_by_name
+      tags:
+        - director
+      summary: Get by name
+      description: Get by name
+      parameters:
+        - name: name
+          in: path
+          type: string
+          description: search by name
+          required: true
+      responses:
+        200:
+          description: search by name
 
 
   /movies:
@@ -278,6 +331,369 @@ paths:
                       type: integer
                     department:
                       type: string
+
+  /movies/MoreBudget/{budget}:
+    get:
+      operationId: movies.get_by_MoreBudget
+      tags:
+        - movies
+      summary: Get movies by more budget
+      description: Get movies by more budget
+      parameters:
+        - name: budget
+          in: path
+          type: integer
+          description: search movies by more budget
+          required: true
+      responses:
+        200:
+          description: search movies by more budget
+
+  /movies/LessBudget/{budget}:
+    get:
+      operationId: movies.get_by_LessBudget
+      tags:
+        - movies
+      summary: Get movies by less budget
+      description: Get movies by less budget
+      parameters:
+        - name: budget
+          in: path
+          type: integer
+          description: search movies by less budget
+          required: true
+      responses:
+        200:
+          description: search movies by less budget
+
+  /movies/BetweenBudget/{budget1},{budget2}:
+    get:
+      operationId: movies.get_by_BetweenBudget
+      tags:
+        - movies
+      summary: Get movies by between budget
+      description: Get movies by between budget
+      parameters:
+        - name: budget1
+          in: path
+          type: integer
+          description: search movies by between budget
+          required: true
+        - name: budget2
+          in: path
+          type: integer
+          description: search movies by between budget
+          required: true
+      responses:
+        200:
+          description: search movies by between budget
+
+  /movies/title/{title}:
+    get:
+      operationId: movies.get_by_title
+      tags:
+        - movies
+      summary: Get by title
+      description: Get by title
+      parameters:
+        - name: title
+          in: path
+          type: string
+          description: search by title
+          required: true
+      responses:
+        200:
+          description: search by title
+
+
+  /movies/MoreRevenue/{revenue}:
+    get:
+      operationId: movies.get_by_MoreRev
+      tags:
+        - movies
+      summary: Get movies by more revenue
+      description: Get movies by more revenue
+      parameters:
+        - name: revenue
+          in: path
+          type: integer
+          description: search movies by more revenue
+          required: true
+      responses:
+        200:
+          description: search movies by more revenue
+
+  /movies/LessRevenue/{revenue}:
+    get:
+      operationId: movies.get_by_LessRev
+      tags:
+        - movies
+      summary: Get movies by less revenue
+      description: Get movies by less revenue
+      parameters:
+        - name: revenue
+          in: path
+          type: integer
+          description: search movies by less revenue
+          required: true
+      responses:
+        200:
+          description: search movies by less revenue
+
+  /movies/BetweenRevenue/{rev1},{rev2}:
+    get:
+      operationId: movies.get_by_BetweenRev
+      tags:
+        - movies
+      summary: Get movies by between revenue
+      description: Get movies by between revenue
+      parameters:
+        - name: rev1
+          in: path
+          type: integer
+          description: search movies by revenue 
+          required: true
+        - name: rev2
+          in: path
+          type: integer
+          description: search movies by revenue 
+          required: true
+      responses:
+        200:
+          description: search movies by between revenue
+
+#popularity
+
+  /movies/MorePopular/{pop}:
+    get:
+      operationId: movies.get_by_MorePopularity
+      tags:
+        - movies
+      summary: Get movies by more popularity
+      description: Get movies by more popularity
+      parameters:
+        - name: pop
+          in: path
+          type: integer
+          description: search movies by more popularity
+          required: true
+      responses:
+        200:
+          description: search movies by more popularity
+
+  /movies/LessPopular/{pop}:
+    get:
+      operationId: movies.get_by_LessPopularity
+      tags:
+        - movies
+      summary: Get movies by less Popularity
+      description: Get movies by less Popularity
+      parameters:
+        - name: pop
+          in: path
+          type: integer
+          description: search movies by less Popularity
+          required: true
+      responses:
+        200:
+          description: search movies by less Popularity
+
+  /movies/BetweenPopularity/{pop1},{pop2}:
+    get:
+      operationId: movies.get_by_BetweenPopularity
+      tags:
+        - movies
+      summary: Get movies by between Popularity
+      description: Get movies by between Popularity
+      parameters:
+        - name: pop1
+          in: path
+          type: integer
+          description: search movies by Popularity
+          required: true
+        - name: pop2
+          in: path
+          type: integer
+          description: search movies by Popularity
+          required: true
+      responses:
+        200:
+          description: search movies by between Popularity
+
+#vote count
+  
+  /movies/Morevote/{vote}:
+    get:
+      operationId: movies.get_by_Morevote
+      tags:
+        - movies
+      summary: Get movies by more vote
+      description: Get movies by more vote
+      parameters:
+        - name: vote
+          in: path
+          type: integer
+          description: search movies by more vote
+          required: true
+      responses:
+        200:
+          description: search movies by more vote
+
+  /movies/Lessvote/{vote}:
+    get:
+      operationId: movies.get_by_Lessvote
+      tags:
+        - movies
+      summary: Get movies by less vote
+      description: Get movies by less vote
+      parameters:
+        - name: vote
+          in: path
+          type: integer
+          description: search movies by less vote
+          required: true
+      responses:
+        200:
+          description: search movies by less vote
+
+  /movies/Betweenvote/{vote1},{vote2}:
+    get:
+      operationId: movies.get_by_Betweenvote
+      tags:
+        - movies
+      summary: Get movies by between vote
+      description: Get movies by between vote
+      parameters:
+        - name: vote1
+          in: path
+          type: integer
+          description: search movies by vote
+          required: true
+        - name: vote2
+          in: path
+          type: integer
+          description: search movies by vote
+          required: true
+      responses:
+        200:
+          description: search movies by between vote
+
+          
+#vote average
+  
+  /movies/Morevoteavg/{vote}:
+    get:
+      operationId: movies.get_by_Morevoteavg
+      tags:
+        - movies
+      summary: Get movies by more vote
+      description: Get movies by more vote
+      parameters:
+        - name: vote
+          in: path
+          type: number
+          description: search movies by more vote
+          required: true
+      responses:
+        200:
+          description: search movies by more vote
+
+  /movies/Lessvoteavg/{vote}:
+    get:
+      operationId: movies.get_by_Lessvoteavg
+      tags:
+        - movies
+      summary: Get movies by less vote
+      description: Get movies by less vote
+      parameters:
+        - name: vote
+          in: path
+          type: number
+          description: search movies by less vote
+          required: true
+      responses:
+        200:
+          description: search movies by less vote
+
+  /movies/Betweenvoteavg/{vote1},{vote2}:
+    get:
+      operationId: movies.get_by_Betweenvoteavg
+      tags:
+        - movies
+      summary: Get movies by between vote
+      description: Get movies by between vote
+      parameters:
+        - name: vote1
+          in: path
+          type: number
+          description: search movies by vote
+          required: true
+        - name: vote2
+          in: path
+          type: number
+          description: search movies by vote
+          required: true
+      responses:
+        200:
+          description: search movies by between vote
+
+# release_date
+
+  /movies/Moredate/{date}:
+    get:
+      operationId: movies.get_by_Moredate
+      tags:
+        - movies
+      summary: Get movies by more release date
+      description: Get movies by more release date
+      parameters:
+        - name: date
+          in: path
+          type: string
+          description: search movies by more release date
+          required: true
+      responses:
+        200:
+          description: search movies by more release date
+
+  /movies/Lessdate/{date}:
+    get:
+      operationId: movies.get_by_Lessdate
+      tags:
+        - movies
+      summary: Get movies by less release date
+      description: Get movies by less release date
+      parameters:
+        - name: date
+          in: path
+          type: string
+          description: search movies by less release date
+          required: true
+      responses:
+        200:
+          description: search movies by less release date
+
+  /movies/Betweendate/{date1},{date2}:
+    get:
+      operationId: movies.get_by_Betweendate
+      tags:
+        - movies
+      summary: Get movies by between release date
+      description: Get movies by between release date
+      parameters:
+        - name: date1
+          in: path
+          type: string
+          description: search movies by release date
+          required: true
+        - name: date2
+          in: path
+          type: string
+          description: search movies by release date
+          required: true
+      responses:
+        200:
+          description: search movies by between release date
 
 
   /directors/{director_id}/movies:

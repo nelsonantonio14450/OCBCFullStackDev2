@@ -5,7 +5,7 @@ from models import Directors, Movies, DirectorsSchema
 
 
 def read_all():
-    directors = Directors.query.order_by(Directors.id).limit(50)
+    directors = Directors.query.order_by(Directors.id).limit(100)
 
     director_schema = DirectorsSchema(many=True)
     data = director_schema.dump(directors)
@@ -27,6 +27,47 @@ def read_one(director_id):
 
     else:
         abort(404, f"director not found for Id: {director_id}")
+
+
+def get_by_department(department):
+    directors = (Directors.query.filter(
+        Directors.department.like(department)).limit(100))
+
+    if directors is not None:
+        director_schema = DirectorsSchema(many=True)
+        data = director_schema.dump(directors)
+        return data
+
+    else:
+        abort(404, f"director not found for department: {department}")
+
+
+def get_by_gender(gender):
+    directors = (Directors.query.with_entities(Directors.uid, Directors.name, Directors.department).filter(
+        Directors.gender == gender).limit(100))
+
+    if directors is not None:
+        director_schema = DirectorsSchema(many=True)
+        data = director_schema.dump(directors)
+        return data
+
+    else:
+        abort(404, f"director not found for gender: {gender}")
+
+
+def get_by_name(name):
+    search = "%{}%".format(name)
+
+    directors = (Directors.query.filter(
+        Directors.name.like(search)).limit(100))
+
+    if directors is not None:
+        director_schema = DirectorsSchema(many=True)
+        data = director_schema.dump(directors)
+        return data
+
+    else:
+        abort(404, f"director not found for name: {name}")
 
 
 def create(directors):
