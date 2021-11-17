@@ -5,6 +5,11 @@ from models import Directors, Movies, DirectorsSchema
 
 
 def read_all():
+    """
+    fungsi Read all, untuk fetch semua data dengan limit 100 agar tidak lama 
+    dalam fetching data dari database, return berisi list directors dan movie yang pernah di directnya
+    return dalam bentuk list/json
+    """
     directors = Directors.query.order_by(Directors.id).limit(100)
 
     director_schema = DirectorsSchema(many=True)
@@ -13,6 +18,11 @@ def read_all():
 
 
 def read_one(director_id):
+    """
+    fungsi Read one, untuk fetch 1 data, menerima parameter director_id, dengan 
+     return berisi list director dan list movies yang pernah di directnya
+    return dalam bentuk list/json
+    """
     directors = (
         Directors.query.filter(Directors.id == director_id)
         .outerjoin(Movies)
@@ -30,6 +40,11 @@ def read_one(director_id):
 
 
 def get_by_department(department):
+    """
+    fungsi sorting by department dari directors, fungsi ini untuk search siapa saja yang terdapat 
+    pada department dari parameter input, menerima parameter department, return list/json dari directors 
+    yang sesuai kriteria
+    """
     directors = (Directors.query.filter(
         Directors.department.like(department)).limit(100))
 
@@ -43,6 +58,11 @@ def get_by_department(department):
 
 
 def get_by_gender(gender):
+    """
+    fungsi sorting by gender dari directors, fungsi ini untuk search siapa saja yang terdapat 
+    pada gender dari parameter input, menerima parameter gender, return list/json dari directors 
+    yang sesuai kriteria
+    """
     directors = (Directors.query.with_entities(Directors.uid, Directors.name, Directors.department).filter(
         Directors.gender == gender).limit(100))
 
@@ -56,6 +76,10 @@ def get_by_gender(gender):
 
 
 def get_by_name(name):
+    """
+    fungsi search directors by name, menerima parameter nama untuk mencari nama dari directors yang sesuai
+    dengan inputan, return json/list dari directors dan movies yang sesuai kriteria
+    """
     search = "%{}%".format(name)
 
     directors = (Directors.query.filter(
@@ -71,6 +95,10 @@ def get_by_name(name):
 
 
 def create(directors):
+    """
+    fungsi untuk menginsert directors, menerima parameter list directors untuk diinput kedalam database, 
+    return dengan kode 200 jika berhasil
+    """
     schema = DirectorsSchema()
     new_dire = schema.load(directors, session=db.session)
 
@@ -83,7 +111,12 @@ def create(directors):
 
 
 def update(director_id, directors):
-
+    """
+    fungsi untuk update directors, menerima parameter director_id dan list directors untuk 
+    diupdate kedalam database dengan ketentuan id dari director sesuai dengan parameter director_id, 
+    return dengan kode 200 jika berhasil, jika tidak ditemukan director_id pada database akan 
+    memunculkan kode error 404 not found
+    """
     upd_dire = Directors.query.filter(
         Directors.id == director_id
     ).one_or_none()
@@ -105,6 +138,11 @@ def update(director_id, directors):
 
 
 def delete(director_id):
+    """
+    fungsi menghapus directors dan movies yang pernah dibuatnya dari database, menerima parameter 
+    director_id, penghapusan didasarkan pada inputan, return 200 jika berhasil, jika tidak
+    ada director_id yang sesuai dengan input maka 404 not found
+    """
     dire = Directors.query.filter(
         Directors.id == director_id).one_or_none()  # directors
 
