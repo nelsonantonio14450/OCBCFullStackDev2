@@ -4,9 +4,9 @@ import thunk from 'redux-thunk'
 const initialState = {
     kanbanlist:
         [
-            { id: 1, title: 'asdasdasdasd', status: '1' },
-            { id: 2, title: 'asdasdasdasd', status: '2' },
-            { id: 3, title: 'asdasdasdasd', status: '3' }
+            { id: 1, title: 'Sakit', status: '1' },
+            { id: 2, title: 'Pala', status: '2' },
+            { id: 3, title: 'Saya', status: '3' }
         ]
 
 }
@@ -15,16 +15,18 @@ const initialState = {
 const kanban = (state = initialState, action) => {
     console.log(state)
     switch (action.type) {
+        case 'BACKLOG':
+            return { kanbanlist: [...action.data.prevKanban, action.data.value] }
         case 'INPROGRESS':
             return { kanbanlist: action.data }
-            //operasinya disini kah?
-            break
+        //operasinya disini kah?
 
-        case '':
-            break
 
-        case '':
-            break
+        case 'EVALUATION':
+            return { kanbanlist: action.data }
+
+        case 'DONE':
+            return { kanbanlist: action.data }
 
         default:
             return state
