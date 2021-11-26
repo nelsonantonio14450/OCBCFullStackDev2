@@ -1,11 +1,13 @@
 
-import logo from './logo.svg'
+import logo from './clock.gif'
 import './App.css'
 import { Component } from 'react'
 import PersonInformation from './components/PersonInformation'
 import FetchComponent from './components/FetchComponent'
 import ClockComponent from './components/ClockComponent'
 import ClassClock from './components/classClockComp'
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 export default class App extends Component {
 
@@ -33,8 +35,8 @@ export default class App extends Component {
   render() {
     return <div className="App">
       <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <PersonInformation />
+        <img src={logo} className="App-logo rounded-circle" alt="logo" />
+        {/* <PersonInformation /> */}
         {/* <FetchComponent /> */}
         <ClockComponent />
         <ClassClock />
