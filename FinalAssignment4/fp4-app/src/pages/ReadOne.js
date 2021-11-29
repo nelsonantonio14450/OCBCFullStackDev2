@@ -18,19 +18,30 @@ function ReadOne() {
 
     return (
         <>
-            <div>
-                <input type="number" onChange={(event) => setSearch(event.target.value)} />
-                <button onClick={() => readone()}>one</button>
+            <div style={{ textAlign: "center", marginTop: "50px" }}>
+                <input style={{ marginRight: "30px" }} type="number" onChange={(event) => setSearch(event.target.value)} />
+                <button className="btn btn-secondary" onClick={() => readone()}>Search</button>
+                <div style={{ marginTop: "50px", borderStyle: "inset" }}>
+                    <div className="row" style={{ marginTop: "50px" }}>
+                        <div className="col-sm-3">
+                            <h3 style={{ textAlign: "right" }}>First Name: </h3>
+                        </div>
+                        <div className="col-sm-6">
+                            <h3 style={{ textAlign: "right" }}> {!state.userlist.firstName ? 'none' : state.userlist.firstName}</h3>
+                        </div>
+                    </div>
+                    <div className="row" style={{ marginTop: "50px" }}>
+                        <div className="col-sm-3">
+                            <h3 style={{ textAlign: "right" }}> Last Name:</h3>
+                        </div>
+                        <div className="col-sm-6">
+                            <h3 style={{ textAlign: "right" }}> {!state.userlist.lastName ? 'none' : state.userlist.lastName}</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            {
-                <>
 
-                    <h1>first name: {state.userlist.firstName}</h1>
-                    <h1> last name: {state.userlist.lastName}</h1>
-                </>
-
-            }
 
 
         </>
