@@ -13,7 +13,7 @@ function Create() {
 
     const insert = () => {
 
-        dispatch(insert_act(key, firstName, lastName))
+        dispatch(insert_act(key, firstName.toLowerCase(), lastName.toLowerCase()))
     }
 
     return (
@@ -24,7 +24,7 @@ function Create() {
                         <h3 style={{ textAlign: "right" }}>id key:</h3>
                     </div>
                     <div className="col-sm-9">
-                        <input style={{ width: "100%", height: "35px" }} type="number" onChange={(event) => setKey(event.target.value)} />
+                        <input style={{ width: "90%", height: "35px" }} type="number" onChange={(event) => setKey(event.target.value)} />
                     </div>
                 </div>
                 <div className="row">
@@ -32,7 +32,7 @@ function Create() {
                         <h3 style={{ textAlign: "right" }}>First Name:</h3>
                     </div>
                     <div className="col-sm-9">
-                        <input style={{ width: "100%", height: "35px" }} type="text" onChange={(event) => setFirst(event.target.value)} />
+                        <input style={{ width: "90%", height: "35px" }} type="text" onChange={(event) => setFirst(event.target.value)} />
                     </div>
                 </div>
                 <div className="row">
@@ -40,17 +40,17 @@ function Create() {
                         <h3 style={{ textAlign: "right" }}>Last Name:</h3>
                     </div>
                     <div className="col-sm-9">
-                        <input style={{ width: "100%", height: "35px" }} type="text" onChange={(event) => setLast(event.target.value)} />
+                        <input style={{ width: "90%", height: "35px" }} type="text" onChange={(event) => setLast(event.target.value)} />
                     </div>
                 </div>
                 <br />
-                <div style={{ textAlign: "center" }}>
-                    <button className="btn btn-success" style={{ width: "49%", height: "35px" }} type="button" onClick={() => insert()}>insert</button>
+                <div style={{ textAlign: "center", marginTop: "20px" }}>
+                    <button className="btn btn-success" style={{ width: "39%", height: "35px" }} type="button" onClick={() => insert()}>insert</button>
                 </div>
             </form>
 
 
-            <h3>{state.message}</h3>
+            <h5 style={{ color: "red", textAlign: "center", marginTop: "20px" }}>{state.message}</h5>
 
 
         </>

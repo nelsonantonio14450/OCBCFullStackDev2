@@ -20,14 +20,14 @@ function ReadOne() {
         <>
             <div style={{ textAlign: "center", marginTop: "50px" }}>
                 <input style={{ marginRight: "30px" }} type="number" onChange={(event) => setSearch(event.target.value)} />
-                <button className="btn btn-secondary" onClick={() => readone()}>Search</button>
+                <button className="btn btn-secondary" onClick={() => readone()}>Search by ID</button>
                 <div style={{ marginTop: "50px", borderStyle: "inset" }}>
                     <div className="row" style={{ marginTop: "50px" }}>
                         <div className="col-sm-3">
                             <h3 style={{ textAlign: "right" }}>First Name: </h3>
                         </div>
                         <div className="col-sm-6">
-                            <h3 style={{ textAlign: "right" }}> {!state.userlist.firstName ? 'none' : state.userlist.firstName}</h3>
+                            <h3 style={{ textAlign: "right" }}> {!state.user.firstName ? 'none' : state.user.firstName}</h3>
                         </div>
                     </div>
                     <div className="row" style={{ marginTop: "50px" }}>
@@ -35,7 +35,7 @@ function ReadOne() {
                             <h3 style={{ textAlign: "right" }}> Last Name:</h3>
                         </div>
                         <div className="col-sm-6">
-                            <h3 style={{ textAlign: "right" }}> {!state.userlist.lastName ? 'none' : state.userlist.lastName}</h3>
+                            <h3 style={{ textAlign: "right" }}> {!state.user.lastName ? 'none' : state.user.lastName}</h3>
                         </div>
                     </div>
                 </div>

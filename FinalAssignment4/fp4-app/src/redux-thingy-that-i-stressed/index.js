@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from 'redux-thunk'
 
 const initialState = {
     userlist: {},
+    user: {},
     message: ""
 
 }
@@ -14,11 +15,9 @@ const users = (state = initialState, action) => {
         case 'READALL':
             return { userlist: action.data }
         case 'READONE':
-            return { userlist: action.data }
+            return { user: action.data }
         case 'INSERT':
             return { message: action.data }
-        case 'UPDATE':
-            return { userlist: action.data }
         case 'DELETE':
             return state
         default:
@@ -27,7 +26,18 @@ const users = (state = initialState, action) => {
     }
 }
 
-const enhancer = applyMiddleware(thunk)
+// const enhancer = applyMiddleware(
+//     [
+//         thunk,
+//         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//     ]
+// )
+
+// const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION__) || compose
+
 //create store
-const store = createStore(users, enhancer)
+const store = createStore(users, compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+))
 export default store

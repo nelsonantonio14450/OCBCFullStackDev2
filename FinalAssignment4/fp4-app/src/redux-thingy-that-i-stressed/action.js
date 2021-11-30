@@ -54,8 +54,8 @@ export function update_act(key, firstName, lastName) {
 
         fetch('/keys/' + key, requestOptions).then(response => response.json())
             .then(data => {
+                console.log(data)
 
-                dispatch({ type: 'UPDATE', data: data })
 
             })
     }
