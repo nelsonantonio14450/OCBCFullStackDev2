@@ -13,18 +13,22 @@ function Create() {
 
     const insert = () => {
 
-        dispatch(insert_act(key, firstName.toLowerCase(), lastName.toLowerCase()))
+        dispatch(insert_act(firstName, lastName))
+        setTimeout(() => {
+            window.location.href = '/'
+        }, 3000);
     }
 
     return (
         <>
+            <h1 style={{ textAlign: "center" }}>Create</h1>
             <form style={{ textAlign: "center", marginTop: "50px" }}>
                 <div className="row">
                     <div className="col-sm-3">
                         <h3 style={{ textAlign: "right" }}>id key:</h3>
                     </div>
                     <div className="col-sm-9">
-                        <input style={{ width: "90%", height: "35px" }} type="number" onChange={(event) => setKey(event.target.value)} />
+                        <input disabled style={{ width: "90%", height: "35px" }} type="number" onChange={(event) => setKey(event.target.value)} />
                     </div>
                 </div>
                 <div className="row">
@@ -45,12 +49,12 @@ function Create() {
                 </div>
                 <br />
                 <div style={{ textAlign: "center", marginTop: "20px" }}>
-                    <button className="btn btn-success" style={{ width: "39%", height: "35px" }} type="button" onClick={() => insert()}>insert</button>
+                    <button disabled={!firstName || !lastName} className="btn btn-success" style={{ width: "39%", height: "35px" }} type="button" onClick={() => insert()}>insert</button>
                 </div>
             </form>
 
 
-            <h5 style={{ color: "red", textAlign: "center", marginTop: "20px" }}>{state.message}</h5>
+            <h5 style={{ color: "red", textAlign: "center", marginTop: "20px" }}>{!state.message ? state.message : state.message + " - Data Sedang Disimpan"}</h5>
 
 
         </>

@@ -8,6 +8,20 @@
 
 }
 
+.bg-img {
+  background: url("./bg2.gif");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.footer {
+
+  width: 100%;
+  background-color: chocolate;
+  color: white;
+  text-align: center;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -31,6 +45,7 @@
 
 .App {
   text-align: center;
+
 }
 
 .App-logo {

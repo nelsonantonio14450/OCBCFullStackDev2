@@ -1,11 +1,15 @@
 
 
-export function insert_act(key, firstName, lastName) {
+export function insert_act(firstName, lastName) {
+    const min = 1;
+    const max = 100;
+    const rand = min + Math.random() * (max - min);
+
     return (dispatch) => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ "key": key + '', "firstName": firstName, "lastName": lastName })
+            body: JSON.stringify({ "key": rand + '', "firstName": firstName.toLowerCase(), "lastName": lastName.toLowerCase() })
         };
 
         fetch('/keys', requestOptions).then(response => response.json())
@@ -49,7 +53,7 @@ export function update_act(key, firstName, lastName) {
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ "key": key + '', "firstName": firstName, "lastName": lastName })
+            body: JSON.stringify({ "key": key + '', "firstName": firstName.toLowerCase(), "lastName": lastName.toLowerCase() })
         };
 
         fetch('/keys/' + key, requestOptions).then(response => response.json())

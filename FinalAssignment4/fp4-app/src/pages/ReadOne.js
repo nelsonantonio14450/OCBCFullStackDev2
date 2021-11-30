@@ -18,6 +18,7 @@ function ReadOne() {
 
     return (
         <>
+            <h2 style={{ textAlign: "center" }}>Search by ID</h2>
             <div style={{ textAlign: "center", marginTop: "50px" }}>
                 <input style={{ marginRight: "30px" }} type="number" onChange={(event) => setSearch(event.target.value)} />
                 <button className="btn btn-secondary" onClick={() => readone()}>Search by ID</button>

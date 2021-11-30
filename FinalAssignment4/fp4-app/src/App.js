@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap'
 import { Provider, useDispatch, useSelector } from 'react-redux'//ini tambahin provider bwt nyimpan data global
 import store from './redux-thingy-that-i-stressed';
-import { Link } from 'react-router-dom';
+import logo from './bg.gif'
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
               <Nav.Link href="/readone">Search</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Never Gonna Give You Up</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Never Gonna Let You Down</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Never Gonna Make You Cry</NavDropdown.Item>
+                <NavDropdown.Item href="https://youtu.be/qWJ9c-SmyHk">Aqua Crying for straight 6 and a half minutes</NavDropdown.Item>
+                <NavDropdown.Item href="https://youtu.be/jETHvZPaAAE">Barbruh Skream</NavDropdown.Item>
+                <NavDropdown.Item href="https://youtu.be/aLUKfU2AOBY">Gaudeamus Igitur</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Never Gonna Desert You</NavDropdown.Item>
+                <NavDropdown.Item href="https://youtu.be/TjID_oXZbzI">Rubia - Paimon</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -35,6 +35,15 @@ function App() {
           <Outlet />
         </Provider>
 
+      </div>
+
+      <div className="container-app bg-img" style={{ textAlign: "center" }}>
+
+        <img src={logo} style={{ marginTop: "50px", marginBottom: "50px" }} />
+      </div>
+
+      <div className="footer">
+        <p>&copy; Shiiizzaaaaaaaa -Joseph Joestar</p>
       </div>
     </div>
   );
